@@ -1,11 +1,37 @@
+// imports
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import 'games.scss';
+@import 'navigation.scss';
+
 body {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-  background-color: #007bff;
+  background-color: #212121;
 }
 
-.pr-HomePage {
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-nba {
+    width: 85%;
+    max-width: 450px;
+    height: 300px;
+  }
+
   &-title {
     color: white;
+    font-size: 50px;
+    font-weight: 100;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .HomePage {
+    &-nba {
+      height: 250px;
+    }
   }
 }

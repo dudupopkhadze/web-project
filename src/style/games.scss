@@ -1,0 +1,60 @@
+.Games {
+  &-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+
+    &-info {
+      display: flex;
+    }
+
+    &-star {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    &-title {
+      color: white;
+      font-weight: 100;
+      font-size: 30px;
+      margin: 0px 8px;
+      width: 400px;
+    }
+
+    &-avatar {
+      width: 40px;
+      height: 40px;
+    }
+
+    &-time {
+      background-color: white;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .Games {
+    &-game {
+      &-star {
+        width: 22px;
+        height: 22px;
+        margin-right: 6px;
+      }
+
+      &-title {
+        font-size: 16px;
+        margin: 0px 4px;
+      }
+      &-avatar {
+        width: 30px;
+        height: 30px;
+      }
+      &-title {
+        width: 240px;
+      }
+    }
+  }
+}

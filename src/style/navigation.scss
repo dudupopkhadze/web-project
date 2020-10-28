@@ -1,0 +1,28 @@
+.Navigation {
+  margin-bottom: 30px;
+  &-container {
+    display: flex;
+    background-color: #424242;
+    cursor: pointer;
+  }
+
+  &-item {
+    padding: 16px;
+    min-width: 150px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &-item--selected {
+    color: #90caf9;
+    border-bottom: 1px solid #90caf9;
+  }
+}
+
+@media (max-width: 600px) {
+  .Navigation {
+    &-item {
+      padding: 12px;
+      min-width: 100px;
+    }
+  }
+}
