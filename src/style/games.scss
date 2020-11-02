@@ -1,12 +1,18 @@
 .Games {
   &-game {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     margin-bottom: 16px;
 
     &-info {
       display: flex;
+      flex-direction: column;
+    }
+
+    &-teamInfo {
+      display: flex;
+      margin-bottom: 10px;
     }
 
     &-star {
@@ -19,7 +25,7 @@
     &-title {
       color: white;
       font-weight: 100;
-      font-size: 30px;
+      font-size: 25px;
       margin: 0px 8px;
       width: 400px;
     }
@@ -29,8 +35,20 @@
       height: 40px;
     }
 
-    &-time {
-      background-color: white;
+    &-score {
+      font-size: 25px;
+      color: white;
+      font-weight: 100;
+    }
+
+    &-statusContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 20px;
+      color: white;
+      font-weight: 100;
+      font-size: 25px;
     }
   }
 }
@@ -53,7 +71,13 @@
         height: 30px;
       }
       &-title {
-        width: 240px;
+        width: 170px;
+      }
+      &-score {
+        font-size: 16px;
+      }
+      &-statusContainer {
+        font-size: 13px;
       }
     }
   }

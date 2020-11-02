@@ -31,20 +31,31 @@ const Game = ({ game, triggerReduce }) => {
         src={`./static/star${isStared ? '-out' : ''}.png`}
       />
       <div className='Games-game-info'>
-        <img
-          className='Games-game-avatar'
-          src={`./static/${game.home_team.abbreviation}.png`}
-        />
-        <div className='Games-game-title'>
-          {game.home_team.city} - {game.visitor_team.city}
+        <div className='Games-game-teamInfo'>
+          <img
+            className='Games-game-avatar'
+            src={`./static/${game.home_team.abbreviation}.png`}
+          />
+          <div className='Games-game-title'>{game.home_team.city}</div>
+          <div className='Games-game-score'>{game.home_team_score}</div>
         </div>
-        <img
-          className='Games-game-avatar'
-          src={`./static/${game.visitor_team.abbreviation}.png`}
-        />
+        <div className='Games-game-teamInfo'>
+          <img
+            className='Games-game-avatar'
+            src={`./static/${game.visitor_team.abbreviation}.png`}
+          />
+          <div className='Games-game-title'>{game.visitor_team.city}</div>
+          <div className='Games-game-score'>{game.visitor_team_score}</div>
+        </div>
       </div>
 
-      {isStarted && <div className='Games-game-time'>{game.time}</div>}
+      <div className='Games-game-statusContainer'>
+        {game.time ? (
+          <div>{game.status + ' ' + game.time} </div>
+        ) : (
+          <div>{game.status}</div>
+        )}
+      </div>
     </div>
   )
 }
