@@ -1,5 +1,5 @@
 import React from 'react'
-import local from '../local'
+import local from '../Helpers/local'
 
 const Games = (props) => {
   const { games, reduce } = props
@@ -13,9 +13,6 @@ const Games = (props) => {
 }
 
 const Game = ({ game, triggerReduce }) => {
-  const isStarted = game.time !== ''
-  const id = String(game.id)
-
   const isStared = local.isFavoriteGame(game.id)
 
   const onClick = () => {

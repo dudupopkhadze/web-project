@@ -1,0 +1,47 @@
+.Calendar {
+  color: white;
+  margin-bottom: 20px;
+  &-container {
+    display: flex;
+  }
+
+  &-item {
+    margin: 0px 10px;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  &-favoriteContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  &-arrow {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  &-item--selected {
+    background-color: #424242;
+    color: #90caf9;
+
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .Calendar {
+    &-item {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .Calendar {
+    &-item {
+      font-size: 11px;
+    }
+  }
+}

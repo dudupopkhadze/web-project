@@ -9,7 +9,8 @@ const NAV_STATE = {
 
 const COMPONENT_IDS = {
   NAV: 'nav',
-  GAMES: 'games'
+  GAMES: 'games',
+  CALENDAR: 'calendar'
 }
 
 const LOCAL_STORAGE_FAV_KEY = 'fav_games'
