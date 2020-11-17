@@ -20,14 +20,10 @@ const Game = ({ game, triggerReduce }) => {
     triggerReduce()
   }
 
-  return (
-    <div className='Games-game' id={game.id}>
-      <img
-        onClick={onClick}
-        className='Games-game-star'
-        src={`./static/star${isStared ? '-out' : ''}.png`}
-      />
-      <div className='Games-game-info'>
+  const renderInfo = () => {
+    const main = (
+      <React.Fragment>
+        {' '}
         <div className='Games-game-teamInfo'>
           <img
             className='Games-game-avatar'
@@ -44,8 +40,28 @@ const Game = ({ game, triggerReduce }) => {
           <div className='Games-game-title'>{game.visitor_team.city}</div>
           <div className='Games-game-score'>{game.visitor_team_score}</div>
         </div>
-      </div>
+      </React.Fragment>
+    )
 
+    if (game.status === 'Final') {
+      return (
+        <a href={`/game.html?id=${game.id}`} className='Games-game-info'>
+          {main}
+        </a>
+      )
+    }
+
+    return <div className='Games-game-info'>{main}</div>
+  }
+
+  return (
+    <div className='Games-game' id={game.id}>
+      <img
+        onClick={onClick}
+        className='Games-game-star'
+        src={`./static/star${isStared ? '-out' : ''}.png`}
+      />
+      {renderInfo()}
       <div className='Games-game-statusContainer'>
         {game.time ? (
           <div>{game.status + ' ' + game.time} </div>

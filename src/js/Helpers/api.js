@@ -21,4 +21,7 @@ const getGames = (date) => {
   return request({ path: 'games', params: { dates: [asString] } })
 }
 
-export default { request, getGames }
+const getGameStats = (id) =>
+  request({ params: { game_ids: [id], per_page: 100 }, path: 'stats' })
+
+export default { request, getGames, getGameStats }

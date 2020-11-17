@@ -1,5 +1,6 @@
 const PAGES = {
-  HOME: 'HOME'
+  HOME: 'HOME',
+  GAME: 'GAME'
 }
 
 const NAV_STATE = {

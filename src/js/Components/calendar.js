@@ -2,6 +2,7 @@ import { add, format, sub } from 'date-fns'
 import React from 'react'
 
 const Calendar = ({ curDate, reduce }) => {
+  console.log(curDate)
   const dates = [
     { date: sub(curDate, { days: 2 }) },
     { date: sub(curDate, { days: 1 }) },
