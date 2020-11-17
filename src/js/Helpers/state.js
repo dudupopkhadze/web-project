@@ -3,23 +3,25 @@ import constants from './constants'
 import local from './local'
 import render from './renderer'
 
-const homeState = {
-  navState: constants.NAV_STATE.CURRENT,
-  games: [],
-  curDate: new Date()
+const STATE_TEMPLATES = {
+  [constants.PAGES.HOME]: {
+    navState: constants.NAV_STATE.CURRENT,
+    games: [],
+    curDate: new Date()
+  },
+  [constants.PAGES.GAME]: {
+    id: '',
+    stats: {}
+  }
 }
 
-const gameState = {
-  id: '',
-  stats: {}
-}
-
-const dateOnChange = async ({ curDate }) => {
+const dateOnChange = async ({ curDate, current }) => {
   const games = await api.getGames(curDate)
-  homeState.games = games.data
+  current.games = games.data
 }
 
-const dateValidator = () => homeState.navState === constants.NAV_STATE.CURRENT
+const dateValidator = (current) =>
+  current.navState === constants.NAV_STATE.CURRENT
 
 const stateToComponents = {
   [constants.COMPONENT_IDS.NAV]: { key: 'navState' },
@@ -34,7 +36,7 @@ const stateToComponents = {
 }
 
 export default function (page) {
-  const current = page === constants.PAGES.HOME ? homeState : gameState
+  const current = STATE_TEMPLATES[page]
   const reduce = (id) => async (props) => {
     if (!props) {
       reRender()
@@ -43,7 +45,7 @@ export default function (page) {
     const { key, onChanges } = stateToComponents[id]
     current[key] = props[key]
     if (onChanges) {
-      await Promise.all(onChanges.map((fn) => fn(props)))
+      await Promise.all(onChanges.map((fn) => fn({ ...props, current })))
     }
     reRender()
   }
@@ -68,7 +70,7 @@ export default function (page) {
       }
 
       if (validators) {
-        const res = validators.map((fn) => fn())
+        const res = validators.map((fn) => fn(current))
 
         if (res.indexOf(false) !== -1) {
           render.unmount(id)

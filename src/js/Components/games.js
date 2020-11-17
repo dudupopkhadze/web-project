@@ -3,7 +3,6 @@ import local from '../Helpers/local'
 
 const Games = (props) => {
   const { games, reduce } = props
-  console.log(games)
   const triggerReduce = () => reduce()
   const renderGame = (e, i) => (
     <Game key={i} game={e} triggerReduce={triggerReduce} />
