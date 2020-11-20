@@ -1,8 +1,9 @@
-import Navigation from './nav'
-import Games from './games'
-import Calendar from './calendar'
+import Navigation from './Navigation'
+import Games from './Games'
+import Calendar from './Calendar'
 import constants from '../Helpers/constants'
 import api from '../Helpers/api'
+import transformGameStats from './Game/helper'
 
 const loadTodaysGames = async ({ current }) => {
   const games = await api.getGames()
@@ -11,7 +12,7 @@ const loadTodaysGames = async ({ current }) => {
 
 const loadGame = async ({ current, id }) => {
   const stats = await api.getGameStats(id)
-  current.stats = stats.data
+  current.stats = transformGameStats(stats)
 }
 
 const componentsToPageMapping = {

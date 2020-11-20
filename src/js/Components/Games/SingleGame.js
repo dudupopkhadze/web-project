@@ -1,17 +1,7 @@
 import React from 'react'
-import local from '../Helpers/local'
+import local from '../../Helpers/local'
 
-const Games = (props) => {
-  const { games, reduce } = props
-  const triggerReduce = () => reduce()
-  const renderGame = (e, i) => (
-    <Game key={i} game={e} triggerReduce={triggerReduce} />
-  )
-
-  return <div>{games.map(renderGame)}</div>
-}
-
-const Game = ({ game, triggerReduce }) => {
+const SingleGame = ({ game, triggerReduce }) => {
   const isStared = local.isFavoriteGame(game.id)
 
   const onClick = () => {
@@ -72,4 +62,4 @@ const Game = ({ game, triggerReduce }) => {
   )
 }
 
-export default Games
+export default SingleGame

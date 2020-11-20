@@ -1,5 +1,5 @@
 import React from 'react'
-import constants from '../Helpers/constants'
+import constants from '../../Helpers/constants'
 
 const Navigation = ({ navState, reduce }) => {
   const handleClick = (navState) => () => {
