@@ -4,19 +4,16 @@ node_js:
   - lts/*
 install:
   - npm install
-before_script: 
+before_script:
   - npm rebuild node-sass
 script:
-  - npm run lint:styles
-  - npm run lint:js
-  - npm run lint:html
   - npm run build
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github-token: ${{ secrets.GITHUB_TOKEN }}
   keep-history: true
   local-dir: dist
   on:
-    branch: master
+    branch: main
     node: 'lts/*'
