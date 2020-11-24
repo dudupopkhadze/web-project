@@ -4,6 +4,8 @@ import constants from './constants'
 const pathToPageMapping = {
   '/index.html': constants.PAGES.HOME,
   '/game.html': constants.PAGES.GAME,
+  '/web-project/game.html': constants.PAGES.GAME,
+  '/web-project/': constants.PAGES.HOME,
   '/': constants.PAGES.HOME
 }
 
