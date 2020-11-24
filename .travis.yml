@@ -13,8 +13,8 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
-  local-dir: public
-  target_branch: main
+  local-dir: dist
+  target_branch:
   on:
     branch: main
     node: 'lts/*'
