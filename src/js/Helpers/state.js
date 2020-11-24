@@ -24,25 +24,31 @@ const dateValidator = (current) =>
   current.navState === constants.NAV_STATE.CURRENT
 
 const stateToComponents = {
-  [constants.COMPONENT_IDS.NAV]: { key: 'navState' },
-  [constants.COMPONENT_IDS.GAMES]: {
-    key: 'games'
+  [constants.PAGES.HOME]: {
+    [constants.COMPONENT_IDS.NAV]: { key: 'navState' },
+    [constants.COMPONENT_IDS.GAMES]: {
+      key: 'games'
+    },
+    [constants.COMPONENT_IDS.CALENDAR]: {
+      key: 'curDate',
+      onChanges: [dateOnChange],
+      validators: [dateValidator]
+    }
   },
-  [constants.COMPONENT_IDS.CALENDAR]: {
-    key: 'curDate',
-    onChanges: [dateOnChange],
-    validators: [dateValidator]
+  [constants.PAGES.GAME]: {
+    [constants.COMPONENT_IDS.GAME]: { key: 'stats' }
   }
 }
 
 export default function (page) {
   const current = STATE_TEMPLATES[page]
+  const stateToComponentsLocal = stateToComponents[page]
   const reduce = (id) => async (props) => {
     if (!props) {
       reRender()
       return
     }
-    const { key, onChanges } = stateToComponents[id]
+    const { key, onChanges } = stateToComponentsLocal[id]
     current[key] = props[key]
     if (onChanges) {
       await Promise.all(onChanges.map((fn) => fn({ ...props, current })))
@@ -51,14 +57,14 @@ export default function (page) {
   }
 
   const getPropsForId = (id) => ({
-    [stateToComponents[id].key]: current[stateToComponents[id].key]
+    [stateToComponentsLocal[id].key]: current[stateToComponentsLocal[id].key]
   })
 
   const renderFn = render.renderFactory(getPropsForId, reduce)
 
   const reRender = () =>
-    Object.keys(stateToComponents).forEach((id) => {
-      const { validators } = stateToComponents[id]
+    Object.keys(stateToComponentsLocal).forEach((id) => {
+      const { validators } = stateToComponentsLocal[id]
       if (id === constants.COMPONENT_IDS.GAMES) {
         render.byId(id, {
           reduce: reduce(id),

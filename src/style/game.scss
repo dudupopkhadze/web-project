@@ -1,0 +1,60 @@
+.Game {
+  &-BoxScore {
+    color: white;
+    &-title {
+      font-weight: 300;
+    }
+    &-switcherContainer {
+      display: flex;
+      justify-content: center;
+
+      &-item {
+        padding: 14px 6px;
+        min-width: 120px;
+        color: rgba(255, 255, 255, 0.7);
+        background-color: #424242;
+        cursor: pointer;
+      }
+
+      &-item--selected {
+        color: #90caf9;
+        border-bottom: 1px solid #90caf9;
+      }
+    }
+  }
+  &-Header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 80px;
+    font-weight: 100;
+    &-avatarsContainer {
+      display: flex;
+      justify-content: center;
+
+      &-avatar {
+        width: 120px;
+        height: 120px;
+      }
+      &-scoreContainer {
+        display: flex;
+        margin: 0px 20px;
+        align-items: center;
+        font-size: 60px;
+        &-divider {
+          margin: 0px 15px;
+          font-weight: bold;
+        }
+      }
+    }
+    &-namesContainer {
+      margin-top: 14px;
+      font-size: 30px;
+      &-divider {
+        margin: 0px 20px;
+        font-weight: 900;
+      }
+    }
+  }
+}

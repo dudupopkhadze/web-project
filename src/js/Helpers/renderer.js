@@ -6,7 +6,8 @@ import constants from './constants'
 const mapIdToComponent = {
   [constants.COMPONENT_IDS.NAV]: Components.Navigation,
   [constants.COMPONENT_IDS.GAMES]: Components.Games,
-  [constants.COMPONENT_IDS.CALENDAR]: Components.Calendar
+  [constants.COMPONENT_IDS.CALENDAR]: Components.Calendar,
+  [constants.COMPONENT_IDS.GAME]: Components.Game
 }
 
 const byId = (id, props) => {

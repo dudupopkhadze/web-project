@@ -1,10 +1,13 @@
 const statTransformer = (stat) => {
   const copy = { ...stat }
-  const player = copy.player
+  const player = { ...copy.player }
   delete copy.game
   delete copy.team
+  delete copy.player
+  const name = player.first_name + ' ' + player.last_name
 
   return {
+    name,
     ...player,
     ...copy
   }
@@ -14,6 +17,7 @@ const filterFn = (id) => (stat) => id === stat.team.id
 
 const transformGameStats = (rawStatsData) => {
   const { data } = rawStatsData
+  const game = { ...data[0].game }
   const teamsObj = {}
   const teamsData = []
 
@@ -29,6 +33,7 @@ const transformGameStats = (rawStatsData) => {
     (team) => team.id === data[0].game.home_team_id
   )
   homeTeam.avatar = `./static/${homeTeam.abbreviation}.png`
+  const currentTeam = homeTeam.id
   const visitorTeam = teamsData.find(
     (team) => team.id === data[0].game.visitor_team_id
   )
@@ -43,7 +48,9 @@ const transformGameStats = (rawStatsData) => {
     homeTeamStats,
     visitorTeamStats,
     visitorTeam,
-    homeTeam
+    homeTeam,
+    game,
+    currentTeam
   }
 }
 

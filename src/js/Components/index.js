@@ -1,6 +1,7 @@
 import Navigation from './Navigation'
 import Games from './Games'
 import Calendar from './Calendar'
+import Game from './Game'
 import constants from '../Helpers/constants'
 import api from '../Helpers/api'
 import transformGameStats from './Game/helper'
@@ -28,8 +29,8 @@ const componentsToPageMapping = {
   [constants.PAGES.GAME]: {
     params: ['id'],
     actions: [loadGame],
-    components: []
+    components: [constants.COMPONENT_IDS.GAME]
   }
 }
 
-export default { Navigation, Games, Calendar, componentsToPageMapping }
+export default { Navigation, Games, Calendar, componentsToPageMapping, Game }
