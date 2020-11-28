@@ -33,10 +33,17 @@ const SingleGame = ({ game, triggerReduce }) => {
     )
 
     if (game.status === 'Final') {
+      //move to window.location.href
+      const handleRedirect = () =>
+        (window.location.href =
+          window.location.href + `game.html?id=${game.id}`)
       return (
-        <a href={`/game.html?id=${game.id}`} className='Games-game-info'>
+        <div
+          onClick={handleRedirect}
+          className='Games-game-info Games-game-info--pointer'
+        >
           {main}
-        </a>
+        </div>
       )
     }
 

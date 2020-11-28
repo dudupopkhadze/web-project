@@ -11,6 +11,10 @@
       text-decoration: none;
     }
 
+    &-info--pointer {
+      cursor: pointer;
+    }
+
     &-teamInfo {
       display: flex;
       margin-bottom: 10px;
