@@ -1,6 +1,7 @@
 import React from 'react'
 import BoxScore from './BoxScore'
 import Header from './Header'
+import TeamStats from './TeamStats'
 
 const Game = (props) => {
   console.log(props)
@@ -18,7 +19,7 @@ const Game = (props) => {
 
   const allTeams = [homeTeam, visitorTeam]
   const isHomeTeamSelected = currentTeam === homeTeam.id
-  const statsForBoxScore = isHomeTeamSelected ? homeTeamStats : visitorTeamStats
+  const currentStats = isHomeTeamSelected ? homeTeamStats : visitorTeamStats
 
   const reduceCurrentTeam = (id) => {
     reduce({ stats: { ...props.stats, currentTeam: id } })
@@ -30,9 +31,9 @@ const Game = (props) => {
       <BoxScore
         currentTeam={currentTeam}
         allTeams={allTeams}
-        stats={statsForBoxScore}
         reduceCurrentTeam={reduceCurrentTeam}
       />
+      <TeamStats stats={currentStats} />
     </div>
   )
 }

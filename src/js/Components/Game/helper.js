@@ -14,6 +14,10 @@ const statTransformer = (stat) => {
 }
 
 const filterFn = (id) => (stat) => id === stat.team.id
+const sortFn = (a, b) => b.pts - a.pts
+
+const transformStats = (data, filter) =>
+  data.filter(filter).map(statTransformer).sort(sortFn)
 
 const transformGameStats = (rawStatsData) => {
   const { data } = rawStatsData
@@ -39,10 +43,8 @@ const transformGameStats = (rawStatsData) => {
   )
   visitorTeam.avatar = `./static/${visitorTeam.abbreviation}.png`
 
-  const homeTeamStats = data.filter(filterFn(homeTeam.id)).map(statTransformer)
-  const visitorTeamStats = data
-    .filter(filterFn(visitorTeam.id))
-    .map(statTransformer)
+  const homeTeamStats = transformStats(data, filterFn(homeTeam.id))
+  const visitorTeamStats = transformStats(data, filterFn(visitorTeam.id))
 
   return {
     homeTeamStats,

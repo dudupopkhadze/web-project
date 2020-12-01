@@ -1,4 +1,49 @@
 .Game {
+  &-Stats {
+    color: white;
+    margin: 0px 23px;
+    margin-top: 30px;
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 2px;
+
+    &-Breakline {
+      background-color: white;
+      width: 100%;
+      margin: 6px 0px 8px 0px;
+      height: 2px;
+    }
+
+    &-Row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      &-item {
+        min-width: 50px;
+        font-size: 15px;
+      }
+
+      &-player {
+        flex: 0.4;
+        text-align: left;
+        max-width: 200px;
+        min-width: 120px;
+        font-size: 16px;
+      }
+    }
+    &-Header {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-Rows {
+      display: flex;
+      flex-direction: column;
+    }
+  }
   &-BoxScore {
     color: white;
     &-title {
@@ -54,6 +99,85 @@
       &-divider {
         margin: 0px 20px;
         font-weight: 900;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .Game {
+    &-Stats {
+      &-Row {
+        &-item {
+          font-size: 13px;
+        }
+
+        &-player {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .Game {
+    &-Stats {
+      &-Row {
+        margin-bottom: 20px;
+      }
+    }
+    &-Header {
+      &-avatarsContainer {
+        &-avatar {
+          width: 70px;
+          height: 70px;
+        }
+        &-scoreContainer {
+          margin: 0px 20px;
+          font-size: 40px;
+        }
+      }
+    }
+    &-BoxScore {
+      &-title {
+        font-weight: 300;
+        font-size: 25px;
+      }
+      &-switcherContainer {
+        &-item {
+          padding: 10px 3px;
+          min-width: 110px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .Game {
+    &-Header {
+      &-avatarsContainer {
+        &-avatar {
+          width: 60px;
+          height: 60px;
+        }
+        &-scoreContainer {
+          margin: 0px 15px;
+          font-size: 35px;
+        }
+      }
+    }
+    &-BoxScore {
+      &-title {
+        font-weight: 300;
+        font-size: 23px;
+      }
+      &-switcherContainer {
+        &-item {
+          padding: 10px 3px;
+          min-width: 100px;
+        }
       }
     }
   }
