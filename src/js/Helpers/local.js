@@ -1,8 +1,28 @@
+import api from './api'
 import constants from './constants'
 
-const initIfNotPresent = () => {
+const sortGames = (a, b) => new Date(b.date) - new Date(a.date)
+
+const initIfNotPresent = (sync = false) => {
   if (!localStorage.getItem(constants.LOCAL_STORAGE_FAV_KEY)) {
     localStorage.setItem(constants.LOCAL_STORAGE_FAV_KEY, JSON.stringify([]))
+    return
+  }
+
+  if (sync) {
+    const games = getFavoriteGames()
+    const upToDateGames = games.filter((game) => game.status === 'Final')
+    const gamesNeedingUpdate = games
+      .filter((game) => game.status !== 'Final')
+      .map((game) => game.id)
+
+    if (gamesNeedingUpdate.length === 0) {
+      return
+    }
+
+    api
+      .getGamesByIDs(gamesNeedingUpdate)
+      .then((res) => save([...upToDateGames, ...res].sort(sortGames)))
   }
 }
 

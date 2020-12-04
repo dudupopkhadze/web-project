@@ -6,7 +6,7 @@ import state from './Helpers/state'
 if (module.hot) {
   module.hot.accept()
 }
-local.initIfNotPresent()
+local.initIfNotPresent(true)
 
 const page = config.getPage()
 const { current, reduce, getPropsForId } = state(page)
