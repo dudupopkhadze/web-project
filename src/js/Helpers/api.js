@@ -14,6 +14,17 @@ const request = ({ path = '', params }) =>
       error: err
     })
 
+const getTeams = () => request({ path: 'teams' })
+
+const searchPlayer = (name) =>
+  request({ path: 'players', params: { search: name } })
+
+const getPlayerStats = (id) =>
+  request({
+    path: 'stats',
+    params: { player_ids: [id], per_page: 100, seasons: ['2020-2021'] }
+  })
+
 const getGamesByIDs = async (ids) => {
   const res = []
   const promises = []
@@ -38,4 +49,11 @@ const getGames = (date) => {
 const getGameStats = (id) =>
   request({ params: { game_ids: [id], per_page: 100 }, path: 'stats' })
 
-export default { request, getGames, getGameStats, getGamesByIDs }
+export default {
+  getTeams,
+  getGames,
+  getGameStats,
+  getGamesByIDs,
+  getPlayerStats,
+  searchPlayer
+}

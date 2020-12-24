@@ -24,8 +24,8 @@ const renderAsync = async () => {
   pageConfig.actions.forEach((fn) =>
     promises.push(fn({ current, ...paramObject }))
   )
-  await Promise.all(promises)
 
+  await Promise.all(promises)
   pageConfig.components.map(renderFn)
 }
 

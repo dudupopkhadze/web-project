@@ -7,7 +7,8 @@ const STATE_TEMPLATES = {
   [constants.PAGES.HOME]: {
     navState: constants.NAV_STATE.CURRENT,
     games: [],
-    curDate: new Date()
+    curDate: new Date(),
+    playerGames: { data: null }
   },
   [constants.PAGES.GAME]: {
     id: '',
@@ -33,6 +34,9 @@ const stateToComponents = {
       key: 'curDate',
       onChanges: [dateOnChange],
       validators: [dateValidator]
+    },
+    [constants.COMPONENT_IDS.PLAYERS]: {
+      key: 'playerGames'
     }
   },
   [constants.PAGES.GAME]: {

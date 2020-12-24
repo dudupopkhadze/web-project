@@ -7,7 +7,8 @@ const mapIdToComponent = {
   [constants.COMPONENT_IDS.NAV]: Components.Navigation,
   [constants.COMPONENT_IDS.GAMES]: Components.Games,
   [constants.COMPONENT_IDS.CALENDAR]: Components.Calendar,
-  [constants.COMPONENT_IDS.GAME]: Components.Game
+  [constants.COMPONENT_IDS.GAME]: Components.Game,
+  [constants.COMPONENT_IDS.PLAYERS]: Components.Players
 }
 
 const byId = (id, props) => {
