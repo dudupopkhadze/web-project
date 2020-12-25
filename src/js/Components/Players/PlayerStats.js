@@ -6,6 +6,7 @@ const PlayerStats = ({ games }) => {
     return null
   }
 
+  // TODO: responsivize this
   const renderGames = () => (
     <React.Fragment>
       <div className='Players-Games-Header'>
@@ -49,7 +50,7 @@ const PlayerStats = ({ games }) => {
     <div className='Players-Games'>
       {games.length === 0 ? (
         <div className='Players-Games-notFound'>
-          No Player Found With Given Name
+          No Player Found With Given Name.
         </div>
       ) : (
         renderGames()

@@ -51,8 +51,16 @@
   &-Search {
     color: white;
     font-weight: 100;
-    display: flex;
-    justify-content: center;
+
+    &-title {
+      font-weight: 100;
+      font-size: 22px;
+    }
+
+    &-wrapper {
+      display: flex;
+      justify-content: center;
+    }
     &-input {
       outline: none;
       width: 200px;

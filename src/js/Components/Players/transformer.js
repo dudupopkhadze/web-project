@@ -1,4 +1,4 @@
-const formatPlayerStats = ({ rawData, teams }) =>
+export default ({ rawData, teams }) =>
   rawData.map((data) => {
     const otherTeamId = [
       data.game.home_team_id,
@@ -9,7 +9,3 @@ const formatPlayerStats = ({ rawData, teams }) =>
     data.vs = otherTeam.full_name
     return data
   })
-
-export default {
-  formatPlayerStats
-}

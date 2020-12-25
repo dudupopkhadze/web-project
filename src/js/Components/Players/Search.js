@@ -1,6 +1,6 @@
 import React from 'react'
 import api from '../../Helpers/api'
-import helper from './helper'
+import transformer from './transformer'
 
 const Search = ({ reduce, teams }) => {
   const handleSearch = () => {
@@ -13,24 +13,31 @@ const Search = ({ reduce, teams }) => {
         return
       }
       const player = playerGames.data[0]
-      api
-        .getPlayerStats(player.id)
-        .then((res) =>
-          reduce({
-            playerGames: {
-              data: helper.formatPlayerStats({ rawData: res.data, teams }),
-              teams
-            }
-          })
-        )
+      api.getPlayerStats(player.id).then((res) =>
+        reduce({
+          playerGames: {
+            data: transformer({ rawData: res.data, teams }),
+            teams
+          }
+        })
+      )
     })
   }
 
   return (
     <div className='Players-Search'>
-      <input id='input' className='Players-Search-input' value='lebron' />
-      <div onClick={handleSearch} className='Players-Search-button'>
-        Search
+      <h1 className='Players-Search-title'>
+        Let's See How Is Your Player Doing This Season
+      </h1>
+      <div className='Players-Search-wrapper'>
+        <input
+          id='input'
+          className='Players-Search-input'
+          placeholder='e.g Lebron James'
+        />
+        <div onClick={handleSearch} className='Players-Search-button'>
+          Search
+        </div>
       </div>
     </div>
   )
