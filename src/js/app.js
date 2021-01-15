@@ -12,6 +12,15 @@ const page = config.getPage()
 const { current, reduce, getPropsForId } = state(page)
 const renderFn = render.renderFactory(getPropsForId, reduce)
 
+const registerListeners = (renderAll) => {
+  const handler = () => {
+    console.log(1)
+    renderAll()
+  }
+  window.onresize = handler
+  window.onunload = () => (window.onresize = null)
+}
+
 const renderAsync = async () => {
   const params = new URLSearchParams(window.location.search)
   const pageConfig = config.getPageConfig(page)
@@ -26,7 +35,9 @@ const renderAsync = async () => {
   )
 
   await Promise.all(promises)
-  pageConfig.components.map(renderFn)
+  const renderAll = () => pageConfig.components.map(renderFn)
+  renderAll()
+  registerListeners(renderAll)
 }
 
 renderAsync()

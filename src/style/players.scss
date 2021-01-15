@@ -5,15 +5,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 
   &-container {
     min-height: 400px;
+    width: 100%;
   }
 
   &-Games {
     color: white;
+    margin: 0px 12px;
     margin-top: 22px;
     font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
     &-notFound {
       font-weight: 300;
       font-size: 25px;
@@ -25,6 +31,11 @@
       border-bottom: 1px solid white;
       margin-bottom: 12px;
       padding-bottom: 7px;
+    }
+
+    &-Rows {
+      display: flex;
+      flex-direction: column;
     }
 
     &-Row {
@@ -64,7 +75,7 @@
     &-input {
       outline: none;
       width: 200px;
-      height: 32px;
+      height: 40px;
       background-color: #424242;
       color: white;
       border: none;
@@ -74,14 +85,63 @@
     }
     &-button {
       background-color: #424242;
-      height: 32px;
-      padding: 0px 12px;
+      height: 40px;
+      padding: 0px 18px;
       margin-left: 22px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       border-radius: 10px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .Players {
+    &-Games {
+      &-Row {
+        &-item {
+          font-size: 13px;
+        }
+
+        &-player {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .Players {
+    &-Games {
+      &-Row {
+        &-item {
+          min-width: 46px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .Players {
+    &-Search {
+      &-title {
+        font-size: 18px;
+      }
+    }
+    &-Games {
+      &-Row {
+        &-item {
+          font-size: 12px;
+        }
+
+        &-player {
+          font-size: 13px;
+        }
+      }
     }
   }
 }

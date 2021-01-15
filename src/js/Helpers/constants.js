@@ -39,13 +39,13 @@ const commonColumnHeaders = [
   {
     value: 'oreb',
     name: 'O-REB',
-    dontRender: { low: 800, high: 1200 }
+    dontRender: { low: 600, high: 1200 }
   },
 
   {
     value: 'dreb',
     name: 'D-REB',
-    dontRender: { low: 800, high: 1200 }
+    dontRender: { low: 600, high: 1200 }
   },
   {
     value: 'fg3_pct',
@@ -54,12 +54,12 @@ const commonColumnHeaders = [
   {
     value: 'fg3a',
     name: '3PT-A',
-    dontRender: { low: 800, high: 1200 }
+    dontRender: { low: 600, high: 1200 }
   },
   {
     value: 'fg3m',
     name: '3PT-M',
-    dontRender: { low: 800, high: 1200 }
+    dontRender: { low: 600, high: 1200 }
   },
   {
     value: 'fg_pct',
@@ -68,12 +68,12 @@ const commonColumnHeaders = [
   {
     value: 'fga',
     name: 'FG-A',
-    dontRender: { low: 800, high: 1050 }
+    dontRender: { low: 600, high: 1000 }
   },
   {
     value: 'fgm',
     name: 'FG-M',
-    dontRender: { low: 800, high: 1050 }
+    dontRender: { low: 600, high: 1000 }
   },
   {
     value: 'ft_pct',
@@ -82,12 +82,12 @@ const commonColumnHeaders = [
   {
     value: 'fta',
     name: 'FT-A',
-    dontRender: { low: 800, high: 1050 }
+    dontRender: { low: 600, high: 1000 }
   },
   {
     value: 'ftm',
     name: 'FT-M',
-    dontRender: { low: 800, high: 1050 }
+    dontRender: { low: 600, high: 1000 }
   },
 
   {

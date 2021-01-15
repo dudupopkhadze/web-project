@@ -120,6 +120,18 @@
   }
 }
 
+@media (max-width: 800px) {
+  .Game {
+    &-Stats {
+      &-Row {
+        &-item {
+          min-width: 46px;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 600px) {
   .Game {
     &-Stats {

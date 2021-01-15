@@ -1,4 +1,5 @@
 import React from 'react'
+import utils from '../../Helpers/utils'
 import constants from './constants'
 
 const PlayerStats = ({ games }) => {
@@ -6,39 +7,42 @@ const PlayerStats = ({ games }) => {
     return null
   }
 
-  // TODO: responsivize this
   const renderGames = () => (
     <React.Fragment>
       <div className='Players-Games-Header'>
-        {constants.columnHeaders.map((e, i) => (
-          <div
-            className={
-              e.className
-                ? 'Players-Games-Row-' + e.className
-                : 'Players-Games-Row-item'
-            }
-            key={i}
-          >
-            {e.name}
-          </div>
-        ))}
+        {constants.columnHeaders.map((e, i) =>
+          utils.shouldRenderColumn(e) ? (
+            <div
+              className={
+                e.className
+                  ? 'Players-Games-Row-' + e.className
+                  : 'Players-Games-Row-item'
+              }
+              key={i}
+            >
+              {e.name}
+            </div>
+          ) : null
+        )}
       </div>
       <div className='Players-Games-Rows'>
         {games.map((game) => {
           return (
             <div className='Players-Games-Row' key={game.id}>
-              {constants.columnHeaders.map((e, i) => (
-                <div
-                  className={
-                    e.className
-                      ? 'Players-Games-Row-' + e.className
-                      : 'Players-Games-Row-item'
-                  }
-                  key={i}
-                >
-                  {game[e.value]}
-                </div>
-              ))}
+              {constants.columnHeaders.map((e, i) =>
+                utils.shouldRenderColumn(e) ? (
+                  <div
+                    className={
+                      e.className
+                        ? 'Players-Games-Row-' + e.className
+                        : 'Players-Games-Row-item'
+                    }
+                    key={i}
+                  >
+                    {game[e.value]}
+                  </div>
+                ) : null
+              )}
             </div>
           )
         })}
