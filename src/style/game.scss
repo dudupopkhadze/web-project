@@ -72,8 +72,28 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 80px;
     font-weight: 100;
+
+    &-backContainer {
+      height: 80px;
+      display: flex;
+      justify-content: flex-start;
+      padding-top: 10px;
+      &-icon {
+        margin-top: 2px;
+        margin-right: 6px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+      &-text {
+        font-size: 21px;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
     &-avatarsContainer {
       display: flex;
       justify-content: center;
