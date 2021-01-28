@@ -4,7 +4,6 @@ import Header from './Header'
 import TeamStats from './TeamStats'
 
 const Game = (props) => {
-  console.log(props)
   const {
     stats: {
       homeTeamStats,
@@ -24,10 +23,16 @@ const Game = (props) => {
   const reduceCurrentTeam = (id) => {
     reduce({ stats: { ...props.stats, currentTeam: id } })
   }
+  const rerender = () => reduce({ stats: props.stats })
 
   return (
     <div>
-      <Header game={game} homeTeam={homeTeam} visitorTeam={visitorTeam} />
+      <Header
+        game={game}
+        homeTeam={homeTeam}
+        visitorTeam={visitorTeam}
+        rerender={rerender}
+      />
       <BoxScore
         currentTeam={currentTeam}
         allTeams={allTeams}

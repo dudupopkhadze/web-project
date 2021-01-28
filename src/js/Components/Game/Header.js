@@ -1,11 +1,18 @@
 import React from 'react'
+import local from '../../Helpers/local'
 
-const Header = ({ visitorTeam, homeTeam, game }) => {
+const Header = ({ visitorTeam, homeTeam, game, rerender }) => {
+  const isStared = local.isFavoriteGame(game.id)
   const goToHome = () =>
     (window.location.href = window.location.href.substr(
       0,
       window.location.href.indexOf('game.html')
     ))
+
+  const onStartClick = () => {
+    local.switchStatus(game)
+    rerender()
+  }
 
   return (
     <div className='Game-Header'>
@@ -36,6 +43,11 @@ const Header = ({ visitorTeam, homeTeam, game }) => {
           src={visitorTeam.avatar}
         />
       </div>
+      <img
+        onClick={onStartClick}
+        className='Game-Header-star'
+        src={`./static/star${isStared ? '-out' : ''}.png`}
+      />
     </div>
   )
 }
