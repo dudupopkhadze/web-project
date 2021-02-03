@@ -14,7 +14,6 @@ const renderFn = render.renderFactory(getPropsForId, reduce)
 
 const registerListeners = (renderAll) => {
   const handler = () => {
-    console.log(1)
     renderAll()
   }
   window.onresize = handler
