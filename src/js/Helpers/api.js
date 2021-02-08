@@ -19,10 +19,10 @@ const getTeams = () => request({ path: 'teams' })
 const searchPlayer = (name) =>
   request({ path: 'players', params: { search: name } })
 
-const getPlayerStats = (id) =>
+const getPlayerStats = (id, page = 0) =>
   request({
     path: 'stats',
-    params: { player_ids: [id], per_page: 100, seasons: ['2020-2021'] }
+    params: { player_ids: [id], per_page: 5, seasons: ['2020-2021'], page }
   })
 
 const getGamesByIDs = async (ids) => {

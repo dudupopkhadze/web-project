@@ -8,14 +8,14 @@
   overflow: auto;
 
   &-container {
-    min-height: 400px;
+    min-height: 350px;
     width: 100%;
   }
 
   &-Games {
     color: white;
     margin: 0px 12px;
-    margin-top: 22px;
+    margin-top: 40px;
     font-weight: 100;
     display: flex;
     flex-direction: column;
@@ -95,8 +95,52 @@
       border-radius: 10px;
     }
   }
+
+  &-Pagination {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 18px;
+
+    &-dot {
+      font-size: 39px;
+      font-family: monospace;
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #424242;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      font-size: 23px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 14px;
+      }
+    }
+
+    &-item--current {
+      color: #90caf9;
+    }
+  }
 }
 
+@media (min-width: 1000px) {
+  .Players {
+    &-Games {
+      margin: 0px 30px;
+      margin-top: 20px;
+    }
+  }
+}
 @media (max-width: 1200px) {
   .Players {
     &-Games {
@@ -127,6 +171,20 @@
 
 @media (max-width: 600px) {
   .Players {
+    &-Pagination {
+      &-dot {
+        font-size: 30px;
+      }
+
+      &-item {
+        width: 33px;
+        height: 33px;
+        font-size: 19px;
+        :not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
     &-Search {
       &-title {
         font-size: 18px;

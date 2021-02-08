@@ -22,6 +22,7 @@ const Search = ({ reduce, teams }) => {
           reduce({
             playerGames: {
               data: transformer({ rawData: res.data, teams }),
+              meta: res.meta,
               teams
             }
           })
@@ -40,6 +41,7 @@ const Search = ({ reduce, teams }) => {
           id='input'
           className='Players-Search-input'
           placeholder='e.g Lebron James'
+          value='Lebron'
         />
         <div onClick={handleSearch()} className='Players-Search-button'>
           Search
