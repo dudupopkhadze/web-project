@@ -8,7 +8,11 @@ const Games = (props) => {
     <SingleGame key={i} game={e} triggerReduce={triggerReduce} />
   )
 
-  return <div>{games.map(renderGame)}</div>
+  return games.length === 0 ? (
+    <h1 className='Games-empty'>No Games Here</h1>
+  ) : (
+    games.map(renderGame)
+  )
 }
 
 export default Games

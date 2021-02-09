@@ -1,4 +1,7 @@
 .Games {
+  &-empty {
+    color: white;
+  }
   &-game {
     display: flex;
     justify-content: end;
