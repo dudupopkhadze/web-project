@@ -13,7 +13,7 @@ const Search = ({ reduce, teams }) => {
       if (!name) return
       api.searchPlayer(name).then((playerGames) => {
         if (playerGames.data.length === 0) {
-          reduce({ playerGames: { data: [] } })
+          reduce({ playerGames: { data: [], teams } })
           return
         }
         const player = playerGames.data[0]
