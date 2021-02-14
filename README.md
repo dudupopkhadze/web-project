@@ -10,7 +10,7 @@ The main Challenge for this project was using react without any external state m
 
 I introduced my implementation of redux like flow, on each page, there is only one point of truth for data, this data is handled by JS Closure and every react component is subscribed to this object and re-renders depending on state change.
 
-Also, i have not used react's built-in state functionality, so react is used only for View components and nothing else.
+Also, i have not used react's built-in state functionality in any of my components, so react is used only for View components and nothing else.
 
 # Commands
 
